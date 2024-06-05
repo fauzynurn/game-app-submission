@@ -15,8 +15,10 @@ extension Dictionary where Key == String, Value == Any {
             return "" as! T
         case is Double.Type, is Int.Type:
             return 0 as! T
-        case is [String:Any].Type, is [[String:Any]].Type:
-            return [] as! T
+        case is [String:Any].Type:
+            return [String:Any]() as! T
+        case is [[String:Any]].Type:
+            return [[String:Any]()] as! T
         default:
             return "" as! T
         }

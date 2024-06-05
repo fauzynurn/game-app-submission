@@ -11,6 +11,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noResultView: UIStackView!
     
     let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -45,12 +46,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     func searchGame(with query: String) {
             Task  {
                 loadingIndicator.startAnimating()
+                noResultView.isHidden = true
                 let network = NetworkService()
                 do {
                     searchResultList = try await network.getGameList(withQuery: query)
                     loadingIndicator.stopAnimating()
                     dataSource.updateData(with: searchResultList)
-                    searchTableView.reloadData()
+                    if searchResultList.isEmpty {
+                        noResultView.isHidden = false
+                    } else {
+                        noResultView.isHidden = true
+                        searchTableView.reloadData()
+                    }
                 } catch {
                     loadingIndicator.stopAnimating()
                 }

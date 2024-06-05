@@ -322,12 +322,34 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                                 <rect key="frame" x="0.0" y="93" width="393" height="666"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lse-tI-xJg">
+                                <rect key="frame" x="96.666666666666686" y="374.66666666666669" width="200" height="102.66666666666669"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kwR-K7-e4g">
+                                        <rect key="frame" x="0.0" y="0.99999999999999645" width="200" height="48.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0YL-Ei-R3N"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No result found. Try another keyword" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIC-RP-MYh">
+                                        <rect key="frame" x="0.0" y="62" width="200" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Gfv-sy-pM9"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zep-9v-1O7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BMp-ex-8gQ" firstAttribute="top" secondItem="zep-9v-1O7" secondAttribute="top" id="8Ay-fz-vqe"/>
                             <constraint firstItem="BMp-ex-8gQ" firstAttribute="leading" secondItem="zep-9v-1O7" secondAttribute="leading" id="HSf-3F-FOO"/>
+                            <constraint firstItem="Lse-tI-xJg" firstAttribute="centerY" secondItem="TJr-2x-CsX" secondAttribute="centerY" id="WEC-XF-gua"/>
+                            <constraint firstItem="Lse-tI-xJg" firstAttribute="centerX" secondItem="TJr-2x-CsX" secondAttribute="centerX" id="ajw-Nd-hWM"/>
                             <constraint firstItem="zep-9v-1O7" firstAttribute="bottom" secondItem="BMp-ex-8gQ" secondAttribute="bottom" id="i7d-jJ-6c9"/>
                             <constraint firstItem="zep-9v-1O7" firstAttribute="trailing" secondItem="BMp-ex-8gQ" secondAttribute="trailing" id="rdl-tS-aLs"/>
                         </constraints>
@@ -335,6 +357,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                     <navigationItem key="navigationItem" title="Search" id="mP6-RV-V5K"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="tH0-Tn-zgt" id="W1I-Vq-X9Q"/>
+                        <outlet property="noResultView" destination="Lse-tI-xJg" id="f8r-pw-tN3"/>
                         <outlet property="searchTableView" destination="BMp-ex-8gQ" id="Wv8-Jk-fFr"/>
                     </connections>
                 </viewController>
