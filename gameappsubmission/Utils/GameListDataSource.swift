@@ -32,6 +32,7 @@ class GameListDataSource: NSObject, UITableViewDataSource {
         cell.supportedPlatform.text = game.supportedPlatformLabel.joined(separator: " | ")
         cell.rating.text = "\(game.rating)"
         cell.esrbRating.text = game.esrbRating
+        cell.releasedDate.text = game.releasedDate
         cell.selectionStyle = .none
         return cell
     }

@@ -56,16 +56,38 @@
                                     <constraint firstAttribute="width" constant="200" id="g3L-Iw-INV"/>
                                 </constraints>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JIY-V3-2Ok">
+                                <rect key="frame" x="96.666666666666686" y="361.66666666666669" width="200" height="129"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VyC-FO-Ca1">
+                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="200" height="59.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Njf-pn-qMW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No connection found. Please check your internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-ew-iv5">
+                                        <rect key="frame" x="0.0" y="68" width="200" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="00l-Ga-i6v"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X9c-AG-vkI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TwE-XB-xez" firstAttribute="centerX" secondItem="al9-z7-EhG" secondAttribute="centerX" id="5Dw-QY-YBj"/>
+                            <constraint firstItem="JIY-V3-2Ok" firstAttribute="centerX" secondItem="al9-z7-EhG" secondAttribute="centerX" id="8Wr-mY-lJn"/>
                             <constraint firstItem="Oni-Vz-DdH" firstAttribute="leading" secondItem="X9c-AG-vkI" secondAttribute="leading" id="AgS-SI-Wab"/>
                             <constraint firstItem="X9c-AG-vkI" firstAttribute="bottom" secondItem="8uO-UD-qbK" secondAttribute="bottom" id="GkR-U2-QJO"/>
                             <constraint firstItem="X9c-AG-vkI" firstAttribute="trailing" secondItem="Oni-Vz-DdH" secondAttribute="trailing" id="IiQ-9F-jdq"/>
                             <constraint firstItem="8uO-UD-qbK" firstAttribute="top" secondItem="X9c-AG-vkI" secondAttribute="top" id="RXG-CH-55S"/>
                             <constraint firstItem="X9c-AG-vkI" firstAttribute="trailing" secondItem="8uO-UD-qbK" secondAttribute="trailing" id="dyT-oV-Jgs"/>
+                            <constraint firstItem="JIY-V3-2Ok" firstAttribute="centerY" secondItem="al9-z7-EhG" secondAttribute="centerY" id="haA-NV-Zlp"/>
                             <constraint firstItem="8uO-UD-qbK" firstAttribute="leading" secondItem="X9c-AG-vkI" secondAttribute="leading" id="iSx-BU-4t3"/>
                             <constraint firstItem="Oni-Vz-DdH" firstAttribute="top" secondItem="X9c-AG-vkI" secondAttribute="top" id="n5W-lM-QUj"/>
                             <constraint firstItem="X9c-AG-vkI" firstAttribute="bottom" secondItem="Oni-Vz-DdH" secondAttribute="bottom" id="rnJ-8f-q38"/>
@@ -78,6 +100,7 @@
                         <outlet property="errorSection" destination="TwE-XB-xez" id="g4Z-b9-uFb"/>
                         <outlet property="gameTableView" destination="Oni-Vz-DdH" id="XSw-yt-Wg5"/>
                         <outlet property="loadingIndicator" destination="8uO-UD-qbK" id="We5-2Q-ai0"/>
+                        <outlet property="noInternetError" destination="JIY-V3-2Ok" id="Jsp-jY-wv4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wah-g6-9C2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -264,6 +287,27 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="jBg-cA-7az">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                             </activityIndicatorView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dHk-A0-SRL">
+                                <rect key="frame" x="96.666666666666686" y="361.66666666666669" width="200" height="129"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-CC-XUk">
+                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="200" height="59.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="H12-qv-rMa"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No connection found. Please check your internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-u3-LaH">
+                                        <rect key="frame" x="0.0" y="68" width="200" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Kko-xi-bn3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="MDo-gM-MWf"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mVi-V8-TXh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -276,6 +320,8 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                             <constraint firstItem="mVi-V8-TXh" firstAttribute="bottom" secondItem="jBg-cA-7az" secondAttribute="bottom" id="Scf-Xx-sAt"/>
                             <constraint firstItem="mVi-V8-TXh" firstAttribute="trailing" secondItem="jBg-cA-7az" secondAttribute="trailing" id="Xi4-so-ope"/>
                             <constraint firstItem="mVi-V8-TXh" firstAttribute="bottom" secondItem="r4E-TA-etK" secondAttribute="bottom" id="iVS-2M-EQ2"/>
+                            <constraint firstItem="dHk-A0-SRL" firstAttribute="centerX" secondItem="ITx-sa-3jo" secondAttribute="centerX" id="rsa-zl-z7e"/>
+                            <constraint firstItem="dHk-A0-SRL" firstAttribute="centerY" secondItem="ITx-sa-3jo" secondAttribute="centerY" id="zOf-Ds-cUV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="E9k-oG-Sal"/>
@@ -285,6 +331,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                         <outlet property="gameImage" destination="20z-u9-ObR" id="FZn-gx-gFO"/>
                         <outlet property="gameName" destination="NLE-LV-sGa" id="v2B-WN-uCa"/>
                         <outlet property="loadingIndicator" destination="jBg-cA-7az" id="0Ed-HG-Gzv"/>
+                        <outlet property="noInternetError" destination="dHk-A0-SRL" id="66T-TF-DyQ"/>
                         <outlet property="rating" destination="9YH-9m-R13" id="GEN-mB-z48"/>
                         <outlet property="releasedDate" destination="mFg-pT-qLW" id="8Od-Gn-pUL"/>
                         <outlet property="scrollView" destination="r4E-TA-etK" id="b4c-G1-gX5"/>
@@ -322,6 +369,28 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                                 <rect key="frame" x="0.0" y="93" width="393" height="666"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tQc-G8-ez7">
+                                <rect key="frame" x="96.666666666666686" y="361.66666666666669" width="200" height="129"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-oj-DbC">
+                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="200" height="59.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="okT-8z-f6v"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No connection found. Please check your internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-z6-LYJ">
+                                        <rect key="frame" x="0.0" y="68" width="200" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="886-3J-TnS"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="Jfj-0D-BRz"/>
+                                    <constraint firstAttribute="width" constant="200" id="npH-q8-FD8"/>
+                                </constraints>
+                            </stackView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lse-tI-xJg">
                                 <rect key="frame" x="96.666666666666686" y="374.66666666666669" width="200" height="102.66666666666669"/>
                                 <subviews>
@@ -350,13 +419,16 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                             <constraint firstItem="BMp-ex-8gQ" firstAttribute="leading" secondItem="zep-9v-1O7" secondAttribute="leading" id="HSf-3F-FOO"/>
                             <constraint firstItem="Lse-tI-xJg" firstAttribute="centerY" secondItem="TJr-2x-CsX" secondAttribute="centerY" id="WEC-XF-gua"/>
                             <constraint firstItem="Lse-tI-xJg" firstAttribute="centerX" secondItem="TJr-2x-CsX" secondAttribute="centerX" id="ajw-Nd-hWM"/>
+                            <constraint firstItem="tQc-G8-ez7" firstAttribute="centerY" secondItem="TJr-2x-CsX" secondAttribute="centerY" id="ewN-DH-RaQ"/>
                             <constraint firstItem="zep-9v-1O7" firstAttribute="bottom" secondItem="BMp-ex-8gQ" secondAttribute="bottom" id="i7d-jJ-6c9"/>
+                            <constraint firstItem="tQc-G8-ez7" firstAttribute="centerX" secondItem="TJr-2x-CsX" secondAttribute="centerX" id="mfM-F4-F93"/>
                             <constraint firstItem="zep-9v-1O7" firstAttribute="trailing" secondItem="BMp-ex-8gQ" secondAttribute="trailing" id="rdl-tS-aLs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="mP6-RV-V5K"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="tH0-Tn-zgt" id="W1I-Vq-X9Q"/>
+                        <outlet property="noInternetError" destination="tQc-G8-ez7" id="CfK-cb-o8z"/>
                         <outlet property="noResultView" destination="Lse-tI-xJg" id="f8r-pw-tN3"/>
                         <outlet property="searchTableView" destination="BMp-ex-8gQ" id="Wv8-Jk-fFr"/>
                     </connections>
@@ -385,13 +457,13 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
         <!--About-->
         <scene sceneID="63n-5R-QIX">
             <objects>
-                <viewController id="Eyc-Zs-FfI" sceneMemberID="viewController">
+                <viewController id="Eyc-Zs-FfI" customClass="AboutViewController" customModule="gameappsubmission" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9k-MK-zfI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mIC-Ap-bw7">
-                                <rect key="frame" x="24" y="314.66666666666669" width="345" height="222.66666666666669"/>
+                                <rect key="frame" x="24" y="300.66666666666669" width="345" height="251.00000000000006"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="gxM-DC-9PL">
                                         <rect key="frame" x="97.666666666666686" y="0.0" width="150" height="150"/>
@@ -414,7 +486,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-HL-139">
-                                        <rect key="frame" x="80.666666666666671" y="174" width="183.66666666666663" height="48.666666666666657"/>
+                                        <rect key="frame" x="80.666666666666671" y="174" width="183.66666666666663" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fauzi Nur Noviansyah" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPP-Fc-Q1e">
                                                 <rect key="frame" x="10" y="0.0" width="164" height="20.333333333333332"/>
@@ -424,6 +496,12 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Dicoding Submission -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oz-Nt-Rwy">
                                                 <rect key="frame" x="0.0" y="28.333333333333314" width="183.66666666666666" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeA-dL-RUZ">
+                                                <rect key="frame" x="68.666666666666671" y="56.666666666666693" width="46.666666666666671" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -442,6 +520,9 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="person.fill" catalog="system" id="WF4-b8-Mu8"/>
+                    <connections>
+                        <outlet property="creditLabel" destination="oeA-dL-RUZ" id="UfD-RF-9FS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8z-uO-vG3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -464,7 +545,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVG-tC-0pI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="473"/>
+            <point key="canvasLocation" x="198" y="470"/>
         </scene>
         <!--Item-->
         <scene sceneID="DZL-Ud-IBp">
@@ -494,6 +575,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="profile_pic" width="1571" height="1153"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="wifi.slash" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

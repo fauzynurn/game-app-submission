@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mji-wD-DFF">
-                        <rect key="frame" x="16" y="15.999999999999993" width="281" height="106.33333333333331"/>
+                        <rect key="frame" x="16" y="16" width="281" height="128.33333333333334"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5at-si-4tb">
-                                <rect key="frame" x="0.0" y="-1.3333333333333357" width="150" height="109.66666666666666"/>
+                                <rect key="frame" x="0.0" y="-1.3333333333333428" width="150" height="131.66666666666669"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Oa4-55-yAJ"/>
@@ -36,10 +36,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="257" horizontalCompressionResistancePriority="749" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kih-MY-ogd">
-                                <rect key="frame" x="158" y="0.0" width="123" height="106.33333333333333"/>
+                                <rect key="frame" x="158" y="0.0" width="123" height="128.33333333333334"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3v8-2n-oRV">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Games Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxV-7G-0Pa">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="48"/>
@@ -53,10 +53,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Released date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOz-nW-uNw">
+                                                <rect key="frame" x="0.0" y="74" width="97" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-Sb-bHP">
-                                        <rect key="frame" x="0.0" y="86" width="123" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="108" width="123" height="20.333333333333343"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Xji-hs-fGz">
                                                 <rect key="frame" x="0.0" y="0.0" width="61.333333333333336" height="20.333333333333332"/>
@@ -106,6 +112,7 @@
                 <outlet property="gameImage" destination="5at-si-4tb" id="9te-GS-b9L"/>
                 <outlet property="gameName" destination="dxV-7G-0Pa" id="GaE-Bs-9EG"/>
                 <outlet property="rating" destination="Pf9-i1-UIq" id="mVu-4A-qrP"/>
+                <outlet property="releasedDate" destination="nOz-nW-uNw" id="nmv-WY-f9c"/>
                 <outlet property="supportedPlatform" destination="f7Z-SN-zxZ" id="50E-3e-LZl"/>
             </connections>
             <point key="canvasLocation" x="-174.80916030534351" y="0.0"/>
@@ -115,7 +122,7 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

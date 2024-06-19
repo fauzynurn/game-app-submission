@@ -14,6 +14,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var supportedPlatform: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var esrbRating: UILabel!
+    @IBOutlet weak var releasedDate: UILabel!
     
     static let identifier = "GameTableViewCell"
     

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Game {
+struct Game: Identifiable {
     let id: Int
     let title: String
     let imageUrl: String
     let supportedPlatformLabel: [String]
     let rating: Double
     let esrbRating: String
-    var releasedDate: String
+    let releasedDate: String
     let playtime: String
     let description: String
     let website: String
@@ -42,6 +42,26 @@ struct Game {
         rating = dictionary.getValue(as: Double.self, fromKey: "rating")
         let esrbRate = dictionary.getValue(as: [String:Any].self, fromKey: "esrb_rating")
         esrbRating = esrbRate.getValue(as: String.self, fromKey: "name")
+    }
+    
+    init(id: Int, title: String, imageUrl: String, supportedPlatformLabelList: [String],
+         rating: Double,
+         esrbRating: String,
+         releasedDate: String,
+         playtime: String,
+         description: String,
+         website: String
+    ) {
+        self.id = id
+        self.title = title
+        self.imageUrl = imageUrl
+        self.supportedPlatformLabel = supportedPlatformLabelList
+        self.rating = rating
+        self.esrbRating = esrbRating
+        self.releasedDate = releasedDate
+        self.playtime = playtime
+        self.description = description
+        self.website = website
     }
     
     static func minutesToHoursAndMinutes(_ minutes: Int) -> (hours: Int , leftMinutes: Int) {
