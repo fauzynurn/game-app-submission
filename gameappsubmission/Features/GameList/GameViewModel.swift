@@ -7,14 +7,14 @@
 
 import Foundation
 import UIKit
+import SwiftData
+import SwiftUI
 
 @MainActor
 class GameViewModel: ObservableObject {
     @Published var gameList: AsyncResult<[Game],Error>
     @Published var searchResult: AsyncResult<[Game],Error>
     @Published var gameDetail: AsyncResult<Game, Error>
-    
-    @Published var isFavorite: Bool = false
     
     let network = NetworkService()
     
@@ -24,28 +24,18 @@ class GameViewModel: ObservableObject {
         self.gameDetail = .initial
     }
     
-    func getFavoriteState() {
-        if let gameId = gameDetail.data?.id {
-            let favoriteList = PreferenceHelper.favoriteGameList
-            let isExist = favoriteList.first(where: {$0 == gameId}) != nil
-            isFavorite = isExist
-        }
-    }
-    
-    func setFavoriteState() {
-        if !isFavorite {
-            addGameToFavorite(gameId: gameDetail.data!.id)
+    func setFavoriteState(modelContext: ModelContext, currentValue isSelected: Bool) {
+        if !isSelected {
+            addGameToFavorite(context: modelContext)
         } else {
-            removeGameFromFavorite(gameId: gameDetail.data!.id)
+            removeGameFromFavorite(context: modelContext)
         }
-        isFavorite.toggle()
     }
     
     func getGameDetail(withId id: String) async {
         gameDetail = .loading
         let result = await network.getGameDetail(withId: id)
         gameDetail = result
-        getFavoriteState()
     }
     
     func resetSearchResult() {
@@ -72,18 +62,19 @@ class GameViewModel: ObservableObject {
         UIApplication.shared.open(link)
     }
     
-    func addGameToFavorite(gameId: Int) {
-        var currentList = PreferenceHelper.favoriteGameList
-        currentList.append(gameId)
-        PreferenceHelper.favoriteGameList = currentList
+    func addGameToFavorite(context: ModelContext) {
+        if let data = gameDetail.data {
+            context.insert(data)
+        }
     }
     
-    func removeGameFromFavorite(gameId: Int) {
-        var currentList = PreferenceHelper.favoriteGameList
-        let isExist = currentList.first(where: {$0 == gameId}) != nil
-        if isExist {
-            currentList.removeAll(where: {$0 == gameId})
-            PreferenceHelper.favoriteGameList = currentList
+    func removeGameFromFavorite(context: ModelContext) {
+        do {
+            let id = gameDetail.data!.id
+            try context.delete(model: Game.self, where: #Predicate {game in
+                return game.id == id})
+        } catch {
+            print("Error occurred while deleting data: \(error)")
         }
     }
 }

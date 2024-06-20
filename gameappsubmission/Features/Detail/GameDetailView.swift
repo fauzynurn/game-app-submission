@@ -6,16 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct GameDetailView: View {
     @StateObject var viewModel = GameViewModel()
     var gameId: String = ""
     
     var body: some View {
-        GameDetailContainer(viewModel: viewModel)
-            .onAppear {
-                viewModel.getFavoriteState()
-            }
+        GameDetailContainer(viewModel: viewModel, gameId: gameId)
             .task {
                 if viewModel.gameDetail.data == nil {
                     await viewModel.getGameDetail(withId: gameId)
@@ -26,6 +24,7 @@ struct GameDetailView: View {
 
 struct GameDetailContainer: View {
     @ObservedObject var viewModel: GameViewModel
+    var gameId: String
     var body: some View {
         viewModel.gameDetail.toView(
             onSuccess: {game in
@@ -53,7 +52,20 @@ struct GameDetailContainer: View {
 struct GameDetail: View {
     @State var scrollOffset = CGFloat.zero
     @ObservedObject var viewModel: GameViewModel
+    var game: Game
+    @Environment(\.modelContext) private var context
+    @Query var favoriteList: [Game]
     
+    init(viewModel: GameViewModel, game: Game) {
+        self.viewModel = viewModel
+        self.game = game
+        
+        let id = game.id
+        let predicate = #Predicate<Game> {
+            return $0.id == id
+        }
+        _favoriteList = Query(filter: predicate)
+    }
     var navigationBarBackgroundIsVisible: Bool {
         if self.scrollOffset > 177 {
             return true
@@ -61,7 +73,7 @@ struct GameDetail: View {
             return false
         }
     }
-    var game: Game
+    
     var body: some View {
         ObservableScrollView(scrollOffset: $scrollOffset) {
             _ in
@@ -120,15 +132,15 @@ struct GameDetail: View {
                             size: 20,
                             weight: .bold
                         )).padding(.bottom, 2)
-                    Text(game.description)
+                    Text(game.desc)
                 }.padding(.vertical, 8).padding(.horizontal, 12)
             }
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: BackButton(isImageVisible: !navigationBarBackgroundIsVisible))
-        .navigationBarItems(trailing: FavoriteButton(isFavorite: $viewModel.isFavorite, isImageVisible: !navigationBarBackgroundIsVisible){
-            viewModel.setFavoriteState()
+        .navigationBarItems(trailing: FavoriteButton(isFavorite: !favoriteList.isEmpty, isImageVisible: !navigationBarBackgroundIsVisible){
+            viewModel.setFavoriteState(modelContext: context, currentValue: !favoriteList.isEmpty)
         })
         .toolbarBackground(navigationBarBackgroundIsVisible ? .visible : .hidden, for: .navigationBar)
     }
@@ -141,7 +153,7 @@ struct GameDetail: View {
 }
 
 struct FavoriteButton: View {
-    @Binding var isFavorite: Bool
+    var isFavorite: Bool
     @Environment(\.colorScheme) var colorScheme
     var isImageVisible: Bool
     var onTapButton: () -> Void
@@ -242,7 +254,7 @@ struct BackButton: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    return FavoriteButton(isFavorite: .constant(false), isImageVisible: false) {
+    return FavoriteButton(isFavorite: false, isImageVisible: false) {
         
     }
 }

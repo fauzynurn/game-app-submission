@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Game: Identifiable {
-    let id: Int
+@Model
+class Game: Identifiable {
+    @Attribute(.unique) let id: Int
     let title: String
     let imageUrl: String
     let supportedPlatformLabel: [String]
@@ -16,7 +18,7 @@ struct Game: Identifiable {
     let esrbRating: String
     let releasedDate: String
     let playtime: String
-    let description: String
+    let desc: String
     let website: String
     
     init(from dictionary: [String:Any]) {
@@ -38,7 +40,7 @@ struct Game: Identifiable {
         let hourMinuteFormat = Game.minutesToHoursAndMinutes(rawPlaytime)
         playtime = hourMinuteFormat.hours != 0 ? "\(hourMinuteFormat.hours)h \(hourMinuteFormat.leftMinutes)m" : "\(hourMinuteFormat.leftMinutes)m"
         website = dictionary.getValue(as: String.self, fromKey: "website")
-        description = dictionary.getValue(as: String.self, fromKey: "description_raw")
+        desc = dictionary.getValue(as: String.self, fromKey: "description_raw")
         rating = dictionary.getValue(as: Double.self, fromKey: "rating")
         let esrbRate = dictionary.getValue(as: [String:Any].self, fromKey: "esrb_rating")
         esrbRating = esrbRate.getValue(as: String.self, fromKey: "name")
@@ -60,7 +62,7 @@ struct Game: Identifiable {
         self.esrbRating = esrbRating
         self.releasedDate = releasedDate
         self.playtime = playtime
-        self.description = description
+        self.desc = description
         self.website = website
     }
     

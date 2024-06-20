@@ -23,6 +23,13 @@ struct MainView: View {
                         systemImage: "magnifyingglass"
                     )
                 }
+            FavoriteListView()
+                .tabItem {
+                    Label(
+                        "Favorite",
+                        systemImage: "heart.fill"
+                    )
+                }
             AboutView()
                 .tabItem {
                     Label(

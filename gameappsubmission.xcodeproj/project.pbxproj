@@ -30,6 +30,7 @@
 		CEECEB5A2C2173B1007E123A /* ObservableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEB592C2173B1007E123A /* ObservableScrollView.swift */; };
 		CEF0010E2BFF336A0027FBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF0010D2BFF336A0027FBA7 /* Assets.xcassets */; };
 		CEF001112BFF336A0027FBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF0010F2BFF336A0027FBA7 /* LaunchScreen.storyboard */; };
+		CEFE31CC2C23E19D00CB26FE /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE31CB2C23E19D00CB26FE /* FavoriteListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		CEF0010D2BFF336A0027FBA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF001102BFF336A0027FBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF001122BFF336A0027FBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEFE31CB2C23E19D00CB26FE /* FavoriteListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteListView.swift; path = gameappsubmission/Features/Favorite/FavoriteListView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		CE745F332C104485007412BD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				CEFE31CA2C23E15E00CB26FE /* Favorite */,
 				CE7E5FBA2C11458000EEE0F7 /* About */,
 				CE745F382C104516007412BD /* Detail */,
 				CE745F372C104504007412BD /* ViewCells */,
@@ -211,6 +214,14 @@
 				CEF001122BFF336A0027FBA7 /* Info.plist */,
 			);
 			path = gameappsubmission;
+			sourceTree = "<group>";
+		};
+		CEFE31CA2C23E15E00CB26FE /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CEFE31CB2C23E19D00CB26FE /* FavoriteListView.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 				CE18D4D62C1492DA001C53C9 /* Main.swift in Sources */,
 				CE18D4D12C1466C4001C53C9 /* GameListView.swift in Sources */,
 				CE9CE0DE2C03522A00A84152 /* NetworkService.swift in Sources */,
+				CEFE31CC2C23E19D00CB26FE /* FavoriteListView.swift in Sources */,
 				CEECEB5A2C2173B1007E123A /* ObservableScrollView.swift in Sources */,
 				CE18D4CD2C146654001C53C9 /* MainView.swift in Sources */,
 				CED54C592C0B3429004A31BC /* GradientView.swift in Sources */,
