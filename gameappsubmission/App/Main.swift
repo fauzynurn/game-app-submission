@@ -15,6 +15,6 @@ struct Main: App {
             MainView()
         }.modelContainer(for: [
             Game.self
-        ], inMemory: true)
+        ])
     }
 }

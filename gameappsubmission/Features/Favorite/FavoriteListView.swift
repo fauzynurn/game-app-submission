@@ -14,7 +14,7 @@ struct FavoriteListView: View {
             FavoriteView()
                 .navigationTitle(
                     Text(
-                        "Favorite game"
+                        "Favorite Game"
                     )
                 )
         }
