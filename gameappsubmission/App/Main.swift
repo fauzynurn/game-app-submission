@@ -7,14 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import Swinject
 
 @main
 struct Main: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-        }.modelContainer(for: [
-            Game.self
-        ])
+        }
+        .modelContainer(Injection.modelContainer)
+        .environmentObject(Injection.instance.resolve(GamePresenter.self)!)
     }
 }

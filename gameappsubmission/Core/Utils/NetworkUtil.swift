@@ -13,8 +13,10 @@ extension Dictionary where Key == String, Value == Any {
         switch type {
         case is String.Type:
             return "" as! T
-        case is Double.Type, is Int.Type:
+        case is Int.Type:
             return 0 as! T
+        case is Double.Type:
+            return 0.0 as! T
         case is [String:Any].Type:
             return [String:Any]() as! T
         case is [[String:Any]].Type:

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Game: Identifiable {
+class GameModel: Identifiable {
     @Attribute(.unique) let id: Int
     let title: String
     let imageUrl: String
@@ -37,7 +37,7 @@ class Game: Identifiable {
         releasedDate = dateObject?.formatted(date: .long, time: .omitted) ?? ""
         
         let rawPlaytime = dictionary.getValue(as: Int.self, fromKey: "playtime")
-        let hourMinuteFormat = Game.minutesToHoursAndMinutes(rawPlaytime)
+        let hourMinuteFormat = GameModel.minutesToHoursAndMinutes(rawPlaytime)
         playtime = hourMinuteFormat.hours != 0 ? "\(hourMinuteFormat.hours)h \(hourMinuteFormat.leftMinutes)m" : "\(hourMinuteFormat.leftMinutes)m"
         website = dictionary.getValue(as: String.self, fromKey: "website")
         desc = dictionary.getValue(as: String.self, fromKey: "description_raw")

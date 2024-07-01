@@ -9,32 +9,36 @@ import SwiftUI
 import SwiftData
 
 struct GameDetailView: View {
-    @StateObject var viewModel = GameViewModel()
+    @StateObject var presenter: GameDetailPresenter
     var gameId: String = ""
     
+    init(presenter: GameDetailPresenter, gameId: String) {
+        self._presenter = StateObject(wrappedValue: presenter)
+        self.gameId = gameId
+    }
+    
     var body: some View {
-        GameDetailContainer(viewModel: viewModel, gameId: gameId)
+        GameDetailContainer(presenter: presenter, gameId: gameId)
             .task {
-                if viewModel.gameDetail.data == nil {
-                    await viewModel.getGameDetail(withId: gameId)
+                if presenter.gameDetail.data == nil {
+                    await presenter.getGameDetail(withId: gameId)
                 }
             }
     }
 }
 
 struct GameDetailContainer: View {
-    @ObservedObject var viewModel: GameViewModel
+    @ObservedObject var presenter: GameDetailPresenter
     var gameId: String
     var body: some View {
-        viewModel.gameDetail.toView(
+        presenter.gameDetail.toView(
             onSuccess: {game in
-                GameDetail(viewModel: viewModel, game: game)
-            }
-            ,onError: {error in
+                GameDetail(presenter: presenter, game: game)
+            },onError: {error in
                 if let err = error as? URLError, err.code == URLError.Code.notConnectedToInternet {
                     NoInternetConnectionView(onTapRetryButton: {
                         Task {
-                            await viewModel.getGameList()
+                            await presenter.getGameDetail(withId: gameId)
                         }
                     })
                 } else {
@@ -51,20 +55,12 @@ struct GameDetailContainer: View {
 
 struct GameDetail: View {
     @State var scrollOffset = CGFloat.zero
-    @ObservedObject var viewModel: GameViewModel
+    @ObservedObject var presenter: GameDetailPresenter
     var game: Game
-    @Environment(\.modelContext) private var context
-    @Query var favoriteList: [Game]
     
-    init(viewModel: GameViewModel, game: Game) {
-        self.viewModel = viewModel
+    init(presenter: GameDetailPresenter, game: Game) {
+        self.presenter = presenter
         self.game = game
-        
-        let id = game.id
-        let predicate = #Predicate<Game> {
-            return $0.id == id
-        }
-        _favoriteList = Query(filter: predicate)
     }
     var navigationBarBackgroundIsVisible: Bool {
         if self.scrollOffset > 177 {
@@ -117,7 +113,7 @@ struct GameDetail: View {
                         }
                     }
                     Button(action: {
-                        viewModel.openWebView(url: game.website)
+                        presenter.openWebView(url: game.website)
                     }, label: {
                         Text("Visit Website")
                             .font(
@@ -139,8 +135,8 @@ struct GameDetail: View {
         .edgesIgnoringSafeArea(.top)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: BackButton(isImageVisible: !navigationBarBackgroundIsVisible))
-        .navigationBarItems(trailing: FavoriteButton(isFavorite: !favoriteList.isEmpty, isImageVisible: !navigationBarBackgroundIsVisible){
-            viewModel.setFavoriteState(modelContext: context, currentValue: !favoriteList.isEmpty)
+        .navigationBarItems(trailing: FavoriteButton(isFavorite: presenter.isFavorite, isImageVisible: !navigationBarBackgroundIsVisible){
+            presenter.setFavoriteState()
         })
         .toolbarBackground(navigationBarBackgroundIsVisible ? .visible : .hidden, for: .navigationBar)
     }
@@ -148,7 +144,7 @@ struct GameDetail: View {
 
 #Preview {
     return NavigationStack {
-        GameDetailView()
+        GameDetailView(presenter: Injection.instance.resolve(GameDetailPresenter.self)!, gameId: "0")
     }
 }
 

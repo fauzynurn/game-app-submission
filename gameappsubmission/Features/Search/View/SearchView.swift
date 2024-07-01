@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SearchListView: View {
-    @StateObject var viewModel = GameViewModel()
+    @EnvironmentObject var presenter: GamePresenter
     @State var query: String = ""
     
     var body: some View {
         NavigationView {
-            SearchView(viewModel: viewModel)
+            SearchView()
                 .searchable(text: $query, prompt: "Game name")
                 .onSubmit(of: .search) {
-                    viewModel.searchGame(withQuery: query)
+                    presenter.searchGame(withQuery: query)
                 }.navigationTitle(
                     Text(
                         "Search"
@@ -27,9 +27,9 @@ struct SearchListView: View {
 }
 
 struct SearchView: View {
-    @ObservedObject var viewModel: GameViewModel
+    @EnvironmentObject var presenter: GamePresenter
     var body: some View {
-        viewModel.searchResult.toView(
+        presenter.searchResult.toView(
             onSuccess: {
                 data in
                 if !data.isEmpty {
@@ -37,20 +37,20 @@ struct SearchView: View {
                         data
                     ) {
                         game in
-                        NavigationLink(destination: GameDetailView(gameId: "\(game.id)")) {
-                            GameItemView(
-                                imageUrl: game.imageUrl,
-                                gameName: game.title,
-                                supportedPlatformLabel: game.supportedPlatformLabel.joined(
-                                    separator: " | "
-                                ),
-                                ratingLabel: "\(game.rating)",
-                                esrbRatingLabel: game.esrbRating,
-                                releasedDate: game.releasedDate
-                            )
-                        }.listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                        GameItemView(
+                            imageUrl: game.imageUrl,
+                            gameName: game.title,
+                            supportedPlatformLabel: game.supportedPlatformLabel.joined(
+                                separator: " | "
+                            ),
+                            ratingLabel: "\(game.rating)",
+                            esrbRatingLabel: game.esrbRating,
+                            releasedDate: game.releasedDate
+                        )
+                        .navigate(to: presenter.router.makeGameDetailView(gameId: "\(game.id)"))
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                     }
                 } else { EmptySearchResult() }
             },
@@ -58,7 +58,7 @@ struct SearchView: View {
                 if let err = error as? URLError, err.code == URLError.Code.notConnectedToInternet {
                     NoInternetConnectionView(onTapRetryButton: {
                         Task {
-                            await viewModel.getGameList()
+                            await presenter.getGameList()
                         }
                     })
                 } else {
@@ -90,6 +90,5 @@ struct EmptySearchResult: View {
 }
 
 #Preview {
-    @StateObject var viewModel: GameViewModel = GameViewModel()
-    return SearchView(viewModel: viewModel)
+    return SearchView()
 }

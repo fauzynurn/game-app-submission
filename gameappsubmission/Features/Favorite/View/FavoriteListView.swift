@@ -22,7 +22,8 @@ struct FavoriteListView: View {
 }
 
 struct FavoriteView: View {
-    @Query var favoriteGameList: [Game]
+    @EnvironmentObject var presenter: GamePresenter
+    @Query var favoriteGameList: [GameModel]
     
     var body: some View {
         if !favoriteGameList.isEmpty {
@@ -30,20 +31,20 @@ struct FavoriteView: View {
                 favoriteGameList
             ) {
                 game in
-                NavigationLink(destination: GameDetailView(gameId: "\(game.id)")) {
-                    GameItemView(
-                        imageUrl: game.imageUrl,
-                        gameName: game.title,
-                        supportedPlatformLabel: game.supportedPlatformLabel.joined(
-                            separator: " | "
-                        ),
-                        ratingLabel: "\(game.rating)",
-                        esrbRatingLabel: game.esrbRating,
-                        releasedDate: game.releasedDate
-                    )
-                }.listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                GameItemView(
+                    imageUrl: game.imageUrl,
+                    gameName: game.title,
+                    supportedPlatformLabel: game.supportedPlatformLabel.joined(
+                        separator: " | "
+                    ),
+                    ratingLabel: "\(game.rating)",
+                    esrbRatingLabel: game.esrbRating,
+                    releasedDate: game.releasedDate
+                )
+                .navigate(to: presenter.router.makeGameDetailView(gameId: "\(game.id)"))
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
             }
         } else { FavoriteEmptyState() }
     }
