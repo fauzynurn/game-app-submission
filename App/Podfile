@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '16.0'
+
+use_frameworks!
+workspace 'gameappsubmissionmodules'
+
+target 'gameappsubmission' do
+
+end
+
+target 'Core' do
+  project '../Core/Core'
+end
