@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Core
 
 protocol GetFavoriteStateUseCase {
     func execute(for id: Int) -> AnyPublisher<Bool, Error>

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 struct GameListView: View {
     @EnvironmentObject var presenter: GamePresenter
@@ -32,7 +33,7 @@ struct GameList: View {
 
     var body: some View {
         presenter.gameList.toView(
-            onSuccess: {data in
+            onSuccess: { data in
                 List(
                     data
                 ) { game in
@@ -45,7 +46,7 @@ struct GameList: View {
                         ratingLabel: "\(game.rating)",
                         esrbRatingLabel: game.esrbRating,
                         releasedDate: game.releasedDate
-                    ).navigate(to: presenter.router.makeGameDetailView(gameId: "\(game.id)"))
+                    ).navigate(to: GameDetailRouter.makeGameDetailView(gameId: "\(game.id)"))
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))

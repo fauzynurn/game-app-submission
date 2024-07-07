@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class GameDetailRouter {
-    func makeGameDetailView(gameId: String) -> some View {
+    static func makeGameDetailView(gameId: String) -> some View {
         let presenter = Injection.instance.resolve(GameDetailPresenter.self)!
         return GameDetailView(presenter: presenter, gameId: gameId)
     }

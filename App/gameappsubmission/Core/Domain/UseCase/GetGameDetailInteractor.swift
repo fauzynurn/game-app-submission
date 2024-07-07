@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Core
 
 protocol GetGameDetailUseCase {
     func execute(withId id: String) -> AnyPublisher<Game, Error>

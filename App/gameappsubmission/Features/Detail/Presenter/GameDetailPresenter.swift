@@ -10,6 +10,7 @@ import UIKit
 import SwiftData
 import SwiftUI
 import Combine
+import Core
 
 class GameDetailPresenter: ObservableObject {
     private let getGameDetailUseCase: GetGameDetailUseCase

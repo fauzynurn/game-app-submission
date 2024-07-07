@@ -16,14 +16,14 @@ struct MainView: View {
                     systemImage: "gamecontroller.fill"
                 )
             }
-            SearchListView()
+            AppSearchListView()
                 .tabItem {
                     Label(
                         "Search",
                         systemImage: "magnifyingglass"
                     )
                 }
-            FavoriteListView()
+            AppFavoriteListView()
                 .tabItem {
                     Label(
                         "Favorite",

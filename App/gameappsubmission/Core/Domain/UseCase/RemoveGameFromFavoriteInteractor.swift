@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Core
 
 protocol RemoveGameFromFavoriteUseCase {
     func execute(withId id: Int) -> AnyPublisher<Bool, Error>

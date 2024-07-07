@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Core
 
 protocol GetGameListUseCase {
     func execute() -> AnyPublisher<[Game], Error>

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Core
 
 struct GameDetailView: View {
     @StateObject var presenter: GameDetailPresenter

@@ -11,3 +11,11 @@ end
 target 'Core' do
   project '../Core/Core'
 end
+
+target 'Search' do
+  project '../Search/Search'
+end
+
+target 'Favorite' do
+  project '../Favorite/Favorite'
+end

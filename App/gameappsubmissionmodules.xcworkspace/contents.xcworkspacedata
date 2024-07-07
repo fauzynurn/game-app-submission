@@ -10,4 +10,10 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../Search/Search.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Favorite/Favorite.xcodeproj">
+   </FileRef>
 </Workspace>

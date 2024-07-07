@@ -8,6 +8,9 @@
 import SwiftUI
 import SwiftData
 import Swinject
+import Core
+import Favorite
+import Search
 
 @main
 struct Main: App {
@@ -17,5 +20,7 @@ struct Main: App {
         }
         .modelContainer(Injection.modelContainer)
         .environmentObject(Injection.instance.resolve(GamePresenter.self)!)
+        .environmentObject(Injection.instance.resolve(FavoriteListPresenter.self)!)
+        .environmentObject(Injection.instance.resolve(SearchPresenter.self)!)
     }
 }
