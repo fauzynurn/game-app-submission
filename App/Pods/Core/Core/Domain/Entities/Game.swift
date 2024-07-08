@@ -17,15 +17,16 @@ public class Game: Identifiable {
     public let desc: String
     public let website: String
 
-    public init(id: Int, title: String,
-         imageUrl: String,
-         supportedPlatformLabelList: [String],
-         rating: Double,
-         esrbRating: String,
-         releasedDate: String,
-         playtime: String,
-         description: String,
-         website: String
+    public init(id: Int,
+                title: String,
+                imageUrl: String,
+                supportedPlatformLabelList: [String],
+                rating: Double,
+                esrbRating: String,
+                releasedDate: String,
+                playtime: String,
+                description: String,
+                website: String
     ) {
         self.id = id
         self.title = title

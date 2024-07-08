@@ -16,9 +16,9 @@
 		CE18D4D62C1492DA001C53C9 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE18D4D52C1492DA001C53C9 /* Main.swift */; };
 		CE18D4DC2C15A258001C53C9 /* AppSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE18D4DB2C15A258001C53C9 /* AppSearchView.swift */; };
 		CE1B83692C2D9429004F9D7A /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CE1B83682C2D9429004F9D7A /* Swinject */; };
+		CE67B4772C3BEB8D009E9ADF /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = CE67B4762C3BEB8C009E9ADF /* codemagic.yaml */; };
 		CE7991DA2C3B76F1005ECBFC /* Detail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7991D92C3B76F1005ECBFC /* Detail.framework */; };
 		CE7991DB2C3B76F1005ECBFC /* Detail.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE7991D92C3B76F1005ECBFC /* Detail.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE9CE0DC2C03321300A84152 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE9CE0DB2C03321300A84152 /* Kingfisher */; };
 		CE9FAE912C3AA43D00258B7A /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9FAE902C3AA43D00258B7A /* Search.framework */; };
 		CE9FAE922C3AA43D00258B7A /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9FAE902C3AA43D00258B7A /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE9FAECD2C3AB3A100258B7A /* Favorite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9FAECC2C3AB3A100258B7A /* Favorite.framework */; };
@@ -26,8 +26,6 @@
 		CE9FAEFD2C3ADF4B00258B7A /* GameList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9FAEFC2C3ADF4B00258B7A /* GameList.framework */; };
 		CE9FAEFE2C3ADF4B00258B7A /* GameList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9FAEFC2C3ADF4B00258B7A /* GameList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEA5B59C2C30496F00395DBC /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5B59B2C30496F00395DBC /* Injection.swift */; };
-		CEDFF8E62C3A78710080377C /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFF8E52C3A78710080377C /* Core.framework */; };
-		CEDFF8E72C3A78710080377C /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFF8E52C3A78710080377C /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEF0010E2BFF336A0027FBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF0010D2BFF336A0027FBA7 /* Assets.xcassets */; };
 		CEF001112BFF336A0027FBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF0010F2BFF336A0027FBA7 /* LaunchScreen.storyboard */; };
 		CEFE31CC2C23E19D00CB26FE /* AppFavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE31CB2C23E19D00CB26FE /* AppFavoriteListView.swift */; };
@@ -44,7 +42,6 @@
 				CE9FAECE2C3AB3A100258B7A /* Favorite.framework in Embed Frameworks */,
 				CE9FAE922C3AA43D00258B7A /* Search.framework in Embed Frameworks */,
 				CE7991DB2C3B76F1005ECBFC /* Detail.framework in Embed Frameworks */,
-				CEDFF8E72C3A78710080377C /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +58,7 @@
 		CE18D4D02C1466C4001C53C9 /* AppGameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGameListView.swift; sourceTree = "<group>"; };
 		CE18D4D52C1492DA001C53C9 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		CE18D4DB2C15A258001C53C9 /* AppSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchView.swift; sourceTree = "<group>"; };
+		CE67B4762C3BEB8C009E9ADF /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		CE7991D92C3B76F1005ECBFC /* Detail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Detail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9FAE902C3AA43D00258B7A /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9FAECC2C3AB3A100258B7A /* Favorite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Favorite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,11 +82,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9FAECD2C3AB3A100258B7A /* Favorite.framework in Frameworks */,
-				CE9CE0DC2C03321300A84152 /* Kingfisher in Frameworks */,
 				CE1B83692C2D9429004F9D7A /* Swinject in Frameworks */,
 				CE9FAEFD2C3ADF4B00258B7A /* GameList.framework in Frameworks */,
 				CB4FBBC721F8D4879D9BBD45 /* Pods_gameappsubmission.framework in Frameworks */,
-				CEDFF8E62C3A78710080377C /* Core.framework in Frameworks */,
 				CE9FAE912C3AA43D00258B7A /* Search.framework in Frameworks */,
 				CE7991DA2C3B76F1005ECBFC /* Detail.framework in Frameworks */,
 			);
@@ -275,6 +271,7 @@
 				CEF0010F2BFF336A0027FBA7 /* LaunchScreen.storyboard */,
 				CEF001122BFF336A0027FBA7 /* Info.plist */,
 				CE0F7A362C2AA69600BB2472 /* Rawg-info.plist */,
+				CE67B4762C3BEB8C009E9ADF /* codemagic.yaml */,
 			);
 			path = gameappsubmission;
 			sourceTree = "<group>";
@@ -300,6 +297,7 @@
 				CEF000FF2BFF33690027FBA7 /* Resources */,
 				CE0F62152C39767300BCA494 /* ShellScript */,
 				CEDFF8E82C3A78710080377C /* Embed Frameworks */,
+				8651156F16DDB45570EE45E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,7 +305,6 @@
 			);
 			name = gameappsubmission;
 			packageProductDependencies = (
-				CE9CE0DB2C03321300A84152 /* Kingfisher */,
 				CE1B83682C2D9429004F9D7A /* Swinject */,
 			);
 			productName = gameappsubmission;
@@ -339,7 +336,6 @@
 			);
 			mainGroup = CEF000F82BFF33690027FBA7;
 			packageReferences = (
-				CE9CE0DA2C03321300A84152 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CE1B83672C2D9429004F9D7A /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = CEF001022BFF33690027FBA7 /* Products */;
@@ -359,6 +355,7 @@
 				CEF001112BFF336A0027FBA7 /* LaunchScreen.storyboard in Resources */,
 				CEF0010E2BFF336A0027FBA7 /* Assets.xcassets in Resources */,
 				CE0F7A372C2AA69600BB2472 /* Rawg-info.plist in Resources */,
+				CE67B4772C3BEB8D009E9ADF /* codemagic.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +382,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8651156F16DDB45570EE45E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gameappsubmission/Pods-gameappsubmission-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gameappsubmission/Pods-gameappsubmission-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gameappsubmission/Pods-gameappsubmission-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CE0F62152C39767300BCA494 /* ShellScript */ = {
@@ -489,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -546,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -560,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC7C233B2B598F1A2820FA88 /* Pods-gameappsubmission.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -572,6 +587,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BC91138919F9CC817FD15CD /* Pods-gameappsubmission.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -601,6 +618,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -646,14 +664,6 @@
 				minimumVersion = 2.9.1;
 			};
 		};
-		CE9CE0DA2C03321300A84152 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,11 +671,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE1B83672C2D9429004F9D7A /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		CE9CE0DB2C03321300A84152 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE9CE0DA2C03321300A84152 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

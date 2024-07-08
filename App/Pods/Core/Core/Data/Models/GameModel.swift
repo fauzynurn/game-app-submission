@@ -48,12 +48,12 @@ public class GameModel: Identifiable {
     }
 
     public init(id: Int, title: String, imageUrl: String, supportedPlatformLabelList: [String],
-         rating: Double,
-         esrbRating: String,
-         releasedDate: String,
-         playtime: String,
-         description: String,
-         website: String
+                rating: Double,
+                esrbRating: String,
+                releasedDate: String,
+                playtime: String,
+                description: String,
+                website: String
     ) {
         self.id = id
         self.title = title

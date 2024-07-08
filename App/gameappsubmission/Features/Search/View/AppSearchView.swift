@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import Core
 import Search
 
 struct AppSearchListView: View {

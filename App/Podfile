@@ -1,29 +1,31 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '16.0'
+platform :ios, '17.1'
+
+source 'https://github.com/fauzynurn/Dicoding-CorePodsSpecs-Module'
 
 use_frameworks!
 workspace 'gameappsubmissionmodules'
 
 target 'gameappsubmission' do
-
-end
-
-target 'Core' do
-  project '../Core/Core'
+  pod 'Core'
 end
 
 target 'Search' do
   project '../Search/Search'
+  pod 'Core'
 end
 
 target 'Favorite' do
   project '../Favorite/Favorite'
+  pod 'Core'
 end
 
 target 'GameList' do
   project '../GameList/GameList'
+  pod 'Core'
 end
 
 target 'Detail' do
   project '../Detail/Detail'
+  pod 'Core'
 end
