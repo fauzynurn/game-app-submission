@@ -1,0 +1,16 @@
+PODS:
+  - Core (1.0.2)
+
+DEPENDENCIES:
+  - Core
+
+SPEC REPOS:
+  https://github.com/fauzynurn/Dicoding-CorePodsSpecs-Module.git:
+    - Core
+
+SPEC CHECKSUMS:
+  Core: 5acfe388c2c6aaf28da56b910efc20eeab029e78
+
+PODFILE CHECKSUM: d380094e492219e2dc4bfad5f0811e6df2672e6a
+
+COCOAPODS: 1.13.0
