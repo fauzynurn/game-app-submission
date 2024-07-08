@@ -1,24 +1,24 @@
 //
 //  GetGameListInteractor.swift
-//  gameappsubmission
+//  GameList
 //
-//  Created by Fauzi Nur Noviansyah on 25/06/24.
+//  Created by Fauzi Nur Noviansyah on 07/07/24.
 //
 
 import Foundation
 import Combine
 import Core
 
-protocol GetGameListUseCase {
+public protocol GetGameListUseCase {
     func execute() -> AnyPublisher<[Game], Error>
 }
 
-class GetGameListInteractor: GetGameListUseCase {
+public class GetGameListInteractor: GetGameListUseCase {
     private let repository: GameRepositoryProtocol
-    required init(repository: GameRepositoryProtocol) {
+    public required init(repository: GameRepositoryProtocol) {
         self.repository = repository
     }
-    func execute() -> AnyPublisher<[Game], Error> {
+    public func execute() -> AnyPublisher<[Game], Error> {
         return repository.getGameList(withQuery: "")
     }
 }

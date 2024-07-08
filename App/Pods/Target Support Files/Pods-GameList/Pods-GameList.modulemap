@@ -1,0 +1,6 @@
+framework module Pods_GameList {
+  umbrella header "Pods-GameList-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,24 +1,24 @@
 //
-//  DetailGameView.swift
-//  gameappsubmission
+//  GameDetailView.swift
+//  Detail
 //
-//  Created by Fauzi Nur Noviansyah on 13/06/24.
+//  Created by Fauzi Nur Noviansyah on 08/07/24.
 //
 
 import SwiftUI
 import SwiftData
 import Core
 
-struct GameDetailView: View {
+public struct GameDetailView: View {
     @StateObject var presenter: GameDetailPresenter
     var gameId: String = ""
 
-    init(presenter: GameDetailPresenter, gameId: String) {
+    public init(presenter: GameDetailPresenter, gameId: String) {
         self._presenter = StateObject(wrappedValue: presenter)
         self.gameId = gameId
     }
 
-    var body: some View {
+    public var body: some View {
         GameDetailContainer(presenter: presenter, gameId: gameId)
             .task {
                 if presenter.gameDetail.data == nil {
@@ -151,12 +151,6 @@ struct GameDetail: View {
             presenter.setFavoriteState()
         })
         .toolbarBackground(navigationBarBackgroundIsVisible ? .visible : .hidden, for: .navigationBar)
-    }
-}
-
-#Preview {
-    return NavigationStack {
-        GameDetailView(presenter: Injection.instance.resolve(GameDetailPresenter.self)!, gameId: "0")
     }
 }
 

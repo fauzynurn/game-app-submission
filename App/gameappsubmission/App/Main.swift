@@ -11,6 +11,7 @@ import Swinject
 import Core
 import Favorite
 import Search
+import GameList
 
 @main
 struct Main: App {
@@ -19,7 +20,7 @@ struct Main: App {
             MainView()
         }
         .modelContainer(Injection.modelContainer)
-        .environmentObject(Injection.instance.resolve(GamePresenter.self)!)
+        .environmentObject(Injection.instance.resolve(GameListPresenter.self)!)
         .environmentObject(Injection.instance.resolve(FavoriteListPresenter.self)!)
         .environmentObject(Injection.instance.resolve(SearchPresenter.self)!)
     }

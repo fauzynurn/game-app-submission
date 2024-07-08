@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            GameListView().tabItem {
+            AppGameListView().tabItem {
                 Label(
                     "Games",
                     systemImage: "gamecontroller.fill"

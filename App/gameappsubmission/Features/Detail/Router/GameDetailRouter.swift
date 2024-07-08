@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Detail
 
 class GameDetailRouter {
     static func makeGameDetailView(gameId: String) -> some View {

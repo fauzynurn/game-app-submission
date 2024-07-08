@@ -19,3 +19,11 @@ end
 target 'Favorite' do
   project '../Favorite/Favorite'
 end
+
+target 'GameList' do
+  project '../GameList/GameList'
+end
+
+target 'Detail' do
+  project '../Detail/Detail'
+end

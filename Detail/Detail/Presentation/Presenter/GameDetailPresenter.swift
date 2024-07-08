@@ -1,30 +1,28 @@
 //
 //  GameDetailPresenter.swift
-//  gameappsubmission
+//  Detail
 //
-//  Created by Fauzi Nur Noviansyah on 29/06/24.
+//  Created by Fauzi Nur Noviansyah on 08/07/24.
 //
 
 import Foundation
-import UIKit
-import SwiftData
-import SwiftUI
-import Combine
 import Core
+import Combine
+import UIKit
 
-class GameDetailPresenter: ObservableObject {
-    private let getGameDetailUseCase: GetGameDetailUseCase
-    private let getFavoriteStateUseCase: GetFavoriteStateUseCase
-    private let addGameToFavoriteUseCase: AddGameToFavoriteUseCase
-    private let removeGameFromFavoriteUseCase: RemoveGameFromFavoriteUseCase
+public class GameDetailPresenter: ObservableObject {
+    let getGameDetailUseCase: GetGameDetailUseCase
+    let addGameToFavoriteUseCase: AddGameToFavoriteUseCase
+    let removeGameFromFavoriteUseCase: RemoveGameFromFavoriteUseCase
+    let getGameFavoriteStateUseCase: GetGameFavoriteStateUseCase
 
     @Published var gameDetail: AsyncResult<Game, Error>
     @Published var isFavorite: Bool
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(getGameDetailUseCase: GetGameDetailUseCase,
-         getFavoriteStateUseCase: GetFavoriteStateUseCase,
+    public init(getGameDetailUseCase: GetGameDetailUseCase,
+         getGameFavoriteStateUseCase: GetGameFavoriteStateUseCase,
          addGameToFavoriteUseCase: AddGameToFavoriteUseCase,
          removeGameFromFavoriteUseCase: RemoveGameFromFavoriteUseCase
     ) {
@@ -32,7 +30,7 @@ class GameDetailPresenter: ObservableObject {
         self.isFavorite = false
 
         self.getGameDetailUseCase = getGameDetailUseCase
-        self.getFavoriteStateUseCase = getFavoriteStateUseCase
+        self.getGameFavoriteStateUseCase = getGameFavoriteStateUseCase
         self.addGameToFavoriteUseCase = addGameToFavoriteUseCase
         self.removeGameFromFavoriteUseCase = removeGameFromFavoriteUseCase
     }
@@ -52,8 +50,8 @@ class GameDetailPresenter: ObservableObject {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                    case .failure(let error): self.gameDetail = .failure(error)
-                    default: {}()
+                        case .failure(let error): self.gameDetail = .failure(error)
+                        default: {}()
                     }
                 },
                 receiveValue: { data in
@@ -63,7 +61,7 @@ class GameDetailPresenter: ObservableObject {
     }
 
     func getFavoriteGameState(for id: Int) {
-        getFavoriteStateUseCase.execute(for: id)
+        getGameFavoriteStateUseCase.execute(for: id)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: {_ in },
                   receiveValue: { result in
@@ -83,8 +81,8 @@ class GameDetailPresenter: ObservableObject {
                 .sink(
                     receiveCompletion: { completion in
                         switch completion {
-                        case .failure(let error): print("an error occurred while adding game to favorite \(error)")
-                        default: {}()
+                            case .failure(let error): print("an error occurred while adding game to favorite \(error)")
+                            default: {}()
                         }
                     },
                     receiveValue: {_ in })
@@ -98,8 +96,8 @@ class GameDetailPresenter: ObservableObject {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                    case .failure(let error): print("an error occurred while removing game from favorite \(error)")
-                    default: {}()
+                        case .failure(let error): print("an error occurred while removing game from favorite \(error)")
+                        default: {}()
                     }
                 },
                 receiveValue: {_ in })

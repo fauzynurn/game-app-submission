@@ -11,6 +11,8 @@ import SwiftData
 import Core
 import Favorite
 import Search
+import GameList
+import Detail
 
 class Injection {}
 
@@ -80,10 +82,10 @@ extension Injection {
                 repository: repository
             )
         }
-        container.register(GetFavoriteStateUseCase.self) {_ in
+        container.register(GetGameFavoriteStateUseCase.self) {_ in
             let repo = container.resolve(GameRepositoryProtocol.self)
             guard let repository = repo else {fatalError("Error while initializing interactor")}
-            return GetFavoriteStateInteractor(
+            return GetGameFavoriteStateInteractor(
                 repository: repository
             )
         }
@@ -95,16 +97,10 @@ extension Injection {
             )
         }
         /// Presenter
-        container.register(GameDetailRouter.self) {_ in GameDetailRouter()}
-        container.register(GamePresenter.self) {_ in
-            guard
-                let getGameListUseCase = container.resolve(GetGameListUseCase.self),
-                let gameDetailRouter = container.resolve(GameDetailRouter.self)
+        container.register(GameListPresenter.self) {_ in
+            guard let getGameListUseCase = container.resolve(GetGameListUseCase.self)
             else {fatalError("Error while initializing interactor")}
-            return GamePresenter(
-                getGameListUseCase: getGameListUseCase,
-                gameDetailRouter: gameDetailRouter
-            )
+            return GameListPresenter(getGameListUseCase: getGameListUseCase)
         }
         container.register(FavoriteListPresenter.self) {_ in
             guard let getFavoriteListUseCase = container.resolve(GetFavoriteListUseCase.self)
@@ -121,11 +117,11 @@ extension Injection {
                 let getGameDetailUseCase = container.resolve(GetGameDetailUseCase.self),
                 let addGameToFavoriteUseCase = container.resolve(AddGameToFavoriteUseCase.self),
                 let removeGameFromFavoriteUseCase = container.resolve(RemoveGameFromFavoriteUseCase.self),
-                let getFavoriteStateUseCase = container.resolve(GetFavoriteStateUseCase.self)
+                let getGameFavoriteStateUseCase = container.resolve(GetGameFavoriteStateUseCase.self)
             else {fatalError("Error while initializing interactor")}
             return GameDetailPresenter(
                 getGameDetailUseCase: getGameDetailUseCase,
-                getFavoriteStateUseCase: getFavoriteStateUseCase,
+                getGameFavoriteStateUseCase: getGameFavoriteStateUseCase,
                 addGameToFavoriteUseCase: addGameToFavoriteUseCase,
                 removeGameFromFavoriteUseCase: removeGameFromFavoriteUseCase)
         }.inObjectScope(.transient)

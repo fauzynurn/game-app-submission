@@ -1,8 +1,8 @@
 //
-//  GameViewController.swift
-//  gameappsubmission
+//  GameListPresenter.swift
+//  GameList
 //
-//  Created by Fauzi Nur Noviansyah on 10/06/24.
+//  Created by Fauzi Nur Noviansyah on 07/07/24.
 //
 
 import Foundation
@@ -12,21 +12,17 @@ import SwiftUI
 import Combine
 import Core
 
-class GamePresenter: ObservableObject {
-    let router: GameDetailRouter
+public class GameListPresenter: ObservableObject {
     private let getGameListUseCase: GetGameListUseCase
 
     @Published var gameList: AsyncResult<[Game], Error>
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(getGameListUseCase: GetGameListUseCase,
-         gameDetailRouter: GameDetailRouter
-    ) {
+    public init(getGameListUseCase: GetGameListUseCase) {
         self.gameList = .initial
 
         self.getGameListUseCase = getGameListUseCase
-        self.router = gameDetailRouter
     }
 
     @MainActor func getGameList() async {

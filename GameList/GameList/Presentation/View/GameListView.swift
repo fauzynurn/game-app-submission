@@ -1,37 +1,32 @@
 //
 //  GameListView.swift
-//  gameappsubmission
+//  GameList
 //
-//  Created by Fauzi Nur Noviansyah on 08/06/24.
+//  Created by Fauzi Nur Noviansyah on 07/07/24.
 //
 
 import SwiftUI
 import Core
 
-struct GameListView: View {
-    @EnvironmentObject var presenter: GamePresenter
-    @State var query: String = ""
+public struct GameListView<Destination: View>: View {
+    @EnvironmentObject var presenter: GameListPresenter
 
-    var body: some View {
-        NavigationView {
-            GameList()
-                .task {
-                    if presenter.gameList.data == nil {
-                        await presenter.getGameList()
-                    }
-                }.navigationTitle(
-                    Text(
-                        "Games"
-                    )
-                )
-        }
+    let action: ((Int) -> Destination)
+
+    public init(action: @escaping (Int) -> Destination) {
+        self.action = action
     }
-}
 
-struct GameList: View {
-    @EnvironmentObject var presenter: GamePresenter
+    public var body: some View {
+        gameList
+            .task {
+                if presenter.gameList.data == nil {
+                    await presenter.getGameList()
+                }
+            }
+    }
 
-    var body: some View {
+    var gameList: some View {
         presenter.gameList.toView(
             onSuccess: { data in
                 List(
@@ -46,7 +41,7 @@ struct GameList: View {
                         ratingLabel: "\(game.rating)",
                         esrbRatingLabel: game.esrbRating,
                         releasedDate: game.releasedDate
-                    ).navigate(to: GameDetailRouter.makeGameDetailView(gameId: "\(game.id)"))
+                    ).navigate(to: self.action(game.id))
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
@@ -73,5 +68,5 @@ struct GameList: View {
 }
 
 #Preview {
-    return GameListView()
+    return GameListView(action: {_ in EmptyView()})
 }
