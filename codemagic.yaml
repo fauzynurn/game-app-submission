@@ -5,7 +5,7 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "gameappsubmissionmodules.xcodeproj" # Isikan nama project Anda.
+          XCODE_WORKSPACE: "gameappsubmissionmodules.xcworkspace" # Isikan nama project Anda.
           XCODE_SCHEME: "gameappsubmission" # Isikan nama scheme project Anda.
     scripts:
       - name: Build debug app
