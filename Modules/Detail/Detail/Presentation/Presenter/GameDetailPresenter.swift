@@ -22,9 +22,9 @@ public class GameDetailPresenter: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
 
     public init(getGameDetailUseCase: GetGameDetailUseCase,
-         getGameFavoriteStateUseCase: GetGameFavoriteStateUseCase,
-         addGameToFavoriteUseCase: AddGameToFavoriteUseCase,
-         removeGameFromFavoriteUseCase: RemoveGameFromFavoriteUseCase
+                getGameFavoriteStateUseCase: GetGameFavoriteStateUseCase,
+                addGameToFavoriteUseCase: AddGameToFavoriteUseCase,
+                removeGameFromFavoriteUseCase: RemoveGameFromFavoriteUseCase
     ) {
         self.gameDetail = .initial
         self.isFavorite = false
@@ -50,8 +50,9 @@ public class GameDetailPresenter: ObservableObject {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                        case .failure(let error): self.gameDetail = .failure(error)
-                        default: {}()
+                    case .failure(let error):
+                        self.gameDetail = .failure(error)
+                    default: {}()
                     }
                 },
                 receiveValue: { data in
@@ -81,8 +82,9 @@ public class GameDetailPresenter: ObservableObject {
                 .sink(
                     receiveCompletion: { completion in
                         switch completion {
-                            case .failure(let error): print("an error occurred while adding game to favorite \(error)")
-                            default: {}()
+                        case .failure(let error):
+                            print("an error occurred while adding game to favorite \(error)")
+                        default: {}()
                         }
                     },
                     receiveValue: {_ in })
@@ -96,8 +98,9 @@ public class GameDetailPresenter: ObservableObject {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                        case .failure(let error): print("an error occurred while removing game from favorite \(error)")
-                        default: {}()
+                    case .failure(let error):
+                        print("an error occurred while removing game from favorite \(error)")
+                    default: {}()
                     }
                 },
                 receiveValue: {_ in })

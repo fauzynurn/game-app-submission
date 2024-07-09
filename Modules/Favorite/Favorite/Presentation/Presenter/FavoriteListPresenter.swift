@@ -28,8 +28,9 @@ public class FavoriteListPresenter: ObservableObject {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                        case .failure(let error): self.favoriteList = .failure(error)
-                        default: {}()
+                    case .failure(let error):
+                        self.favoriteList = .failure(error)
+                    default: {}()
                     }
                 },
                 receiveValue: { data in

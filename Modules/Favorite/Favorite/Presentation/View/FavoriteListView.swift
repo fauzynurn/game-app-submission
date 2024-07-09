@@ -11,7 +11,7 @@ import Core
 
 public struct FavoriteListView<Destination: View>: View {
     @EnvironmentObject var presenter: FavoriteListPresenter
-    
+
     let action: ((Int) -> Destination)
 
     public init(action: @escaping (Int) -> Destination) {

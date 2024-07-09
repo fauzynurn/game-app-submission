@@ -11,7 +11,7 @@ import Combine
 
 public class SearchPresenter: ObservableObject {
     private let searchGameUseCase: SearchGameUseCase
-    
+
     @Published var searchResult: AsyncResult<[Game], Error>
 
     private var cancellables: Set<AnyCancellable> = []
